@@ -101,15 +101,3 @@ flutter run
 7. Pull down to refresh the user list.
 8. If the API request fails, an error message with a **Retry** button is displayed.
 
----
-
-## Learning Outcomes
-
-- Working with REST APIs in Flutter
-- Sending HTTP requests using the `http` package
-- Parsing JSON data into Dart objects
-- Creating reusable Flutter widgets
-- Displaying dynamic data using `FutureBuilder`
-- Implementing loading indicators
-- Handling API errors gracefully
-- Building responsive Flutter user interfaces
