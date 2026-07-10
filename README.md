@@ -1,10 +1,10 @@
 # Flutter Week 4 – API Integration and Networking
 
-This Flutter application was developed as part of the **Week 4 Flutter Internship**. The project demonstrates how to fetch data from a REST API, parse JSON responses, and display user information using a clean and responsive Flutter user interface with proper loading and error handling.
+This Flutter application was developed as part of the **Week 4 Flutter Internship**. The project demonstrates how to fetch data from a RESTful API, parse JSON responses, and display user information using a clean and responsive Flutter user interface with proper loading and error handling.
 
 ## Features
 
-- Fetch user data from a REST API using the `http` package
+- Fetch user data from a RESTful API using the `http` package
 - Parse JSON data into Dart model objects
 - Display users in a scrollable `ListView`
 - View user profile details
@@ -19,11 +19,10 @@ This Flutter application was developed as part of the **Week 4 Flutter Internshi
 - Flutter
 - Dart
 - http Package
-- JSONPlaceholder REST API
 
 ## API Used
 
-This project uses the public **JSONPlaceholder** REST API:
+This project uses the public **JSONPlaceholder** RESTful API:
 
 ```text
 https://jsonplaceholder.typicode.com/users
