@@ -18,18 +18,18 @@ class UserCard extends StatelessWidget {
         horizontal: 2,
         vertical: 8,
       ),
-      elevation: 3,
+      elevation: 4,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
-          vertical: 12,
+          vertical: 14,
         ),
 
         leading: CircleAvatar(
-          radius: 32,
+          radius: 34,
           backgroundColor: Colors.teal.shade100,
           backgroundImage: NetworkImage(
             "https://i.pravatar.cc/150?img=${user.id}",
@@ -39,40 +39,15 @@ class UserCard extends StatelessWidget {
         title: Text(
           user.name,
           style: const TextStyle(
-            fontSize: 17,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
 
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 4),
-
-            Text(
-              user.email,
-              style: const TextStyle(
-                color: Colors.grey,
-              ),
-            ),
-
-            const SizedBox(height: 6),
-
-            Text(
-              "Tap to view profile",
-              style: TextStyle(
-                color: Colors.teal.shade700,
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-
-        trailing: const Icon(
+        trailing: Icon(
           Icons.arrow_forward_ios_rounded,
           size: 18,
-          color: Colors.teal,
+          color: Colors.teal.shade400,
         ),
 
         onTap: () {

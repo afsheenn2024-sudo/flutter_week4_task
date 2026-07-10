@@ -10,45 +10,51 @@ class ProfileScreen extends StatelessWidget {
     required this.user,
   });
 
-  Widget buildInfoCard({
+  Widget buildInfoRow({
     required IconData icon,
     required String title,
     required String value,
   }) {
-    return Card(
-      elevation: 3,
-      margin: const EdgeInsets.only(bottom: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 18,
-          vertical: 10,
-        ),
-        leading: CircleAvatar(
-          radius: 24,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CircleAvatar(
+          radius: 22,
           backgroundColor: Colors.teal.shade100,
           child: Icon(
             icon,
-            color: Colors.teal,
+            color: Colors.teal.shade700,
+            size: 22,
           ),
         ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.grey,
-            fontSize: 13,
+
+        const SizedBox(width: 16),
+
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 13,
+                  color: Colors.grey,
+                ),
+              ),
+
+              const SizedBox(height: 4),
+
+              Text(
+                value,
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
         ),
-        subtitle: Text(
-          value,
-          style: const TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
+      ],
     );
   }
 
@@ -76,35 +82,46 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             children: [
               CircleAvatar(
-                radius: 70,
+                radius: 75,
+                backgroundColor: Colors.white,
                 backgroundImage: NetworkImage(
                   "https://i.pravatar.cc/150?img=${user.id}",
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 36),
 
-              Text(
-                user.name,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
+              Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 22,
+                  ),
+                  child: Column(
+                    children: [
+                      buildInfoRow(
+                        icon: Icons.person,
+                        title: "Name",
+                        value: user.name,
+                      ),
 
-              const SizedBox(height: 30),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 18),
+                        child: Divider(thickness: 1),
+                      ),
 
-              buildInfoCard(
-                icon: Icons.person,
-                title: "Name",
-                value: user.name,
-              ),
-
-              buildInfoCard(
-                icon: Icons.email,
-                title: "Email",
-                value: user.email,
+                      buildInfoRow(
+                        icon: Icons.email_outlined,
+                        title: "Email",
+                        value: user.email,
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

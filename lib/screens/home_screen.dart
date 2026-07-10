@@ -32,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-
       appBar: AppBar(
         backgroundColor: Colors.teal,
         elevation: 1,
@@ -45,12 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-
       body: SafeArea(
         child: FutureBuilder<List<User>>(
           future: users,
           builder: (context, snapshot) {
-
             // Loading
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -68,15 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-
                       const Icon(
                         Icons.cloud_off,
                         color: Colors.red,
                         size: 90,
                       ),
-
                       const SizedBox(height: 20),
-
                       const Text(
                         "Failed to Load Users",
                         style: TextStyle(
@@ -84,9 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
                       const SizedBox(height: 10),
-
                       const Text(
                         "Please check your internet connection and try again.",
                         textAlign: TextAlign.center,
@@ -95,9 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontSize: 16,
                         ),
                       ),
-
                       const SizedBox(height: 25),
-
                       ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.teal,
@@ -128,35 +118,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
             return RefreshIndicator(
               color: Colors.teal,
-              backgroundColor: Colors.white,
               onRefresh: refreshUsers,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 20, 16, 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         Row(
                           children: [
-
                             Icon(
                               Icons.people_alt_rounded,
                               color: Colors.teal.shade700,
-                              size: 30,
+                              size: 24,
                             ),
-
-                            const SizedBox(width: 10),
-
-                            Text(
-                              "Users",
+                            const SizedBox(width: 8),
+                            const Text(
+                              "Browse Users",
                               style: TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.teal.shade700,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ],
@@ -164,11 +147,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         const SizedBox(height: 4),
 
-                        const Text(
-                          "Browse user profiles from the API",
-                          style: TextStyle(
+                        Text(
+                          "${userList.length} users loaded",
+                          style: const TextStyle(
                             color: Colors.grey,
-                            fontSize: 15,
+                            fontSize: 14,
                           ),
                         ),
                       ],
